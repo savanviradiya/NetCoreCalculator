@@ -1,0 +1,47 @@
+﻿@model NetCoreCalculator.Models.Operation
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<h4>Operation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NumberA" class="control-label"></label>
+                <input asp-for="NumberA" class="form-control" />
+                <span asp-validation-for="NumberA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberB" class="control-label"></label>
+                <input asp-for="NumberB" class="form-control" />
+                <span asp-validation-for="NumberB" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OperationType" class="control-label"></label>
+                <select asp-for="OperationType" class="form-control" asp-items="Html.GetEnumSelectList<OperationType>()">
+                    <option selected="selected" value=""></option>
+                </select>
+                <span asp-validation-for="OperationType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Calculate" class="btn btn-primary" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Result" class="control-label"></label>
+                <input type="number" asp-for="Result" disabled="disabled" class="form-control"/>
+                <span asp-validation-for="Result" class="text-danger"></span>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
